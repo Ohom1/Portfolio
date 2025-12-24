@@ -8,8 +8,14 @@
         "name": "Omkarnath Dubey",
         "role": "Frontend Developer",
         "tagline": "Building scalable, high-performance, and elegant web solutions for the enterprise.",
-        "cta_primary": { "text": "View Projects", "link": "#projects" },
-        "cta_secondary": { "text": "Contact Me", "link": "#contact" }
+        "cta_primary": {
+            "text": "View Projects",
+            "link": "#projects"
+        },
+        "cta_secondary": {
+            "text": "Contact Me",
+            "link": "#contact"
+        }
     },
     "about": {
         "title": "About Me",
@@ -20,15 +26,30 @@
         "categories": [
             {
                 "name": "Core Technologies",
-                "items": ["HTML5", "CSS3", "JavaScript (ES6+)", "TypeScript"]
+                "items": [
+                    "HTML5",
+                    "CSS3",
+                    "JavaScript (ES6+)",
+                    "TypeScript"
+                ]
             },
             {
                 "name": "Frameworks & Libraries",
-                "items": ["React", "Next.js", "Tailwind CSS", "Bootstrap"]
+                "items": [
+                    "React",
+                    "Next.js",
+                    "Tailwind CSS",
+                    "Bootstrap"
+                ]
             },
             {
                 "name": "Tools & Workflow",
-                "items": ["Git & GitHub", "VS Code", "Figma", "Webpack/Vite"]
+                "items": [
+                    "Git & GitHub",
+                    "VS Code",
+                    "Figma",
+                    "Webpack/Vite"
+                ]
             }
         ]
     },
@@ -38,22 +59,34 @@
             {
                 "title": "Enterprise Dashboard UI",
                 "description": "A comprehensive analytics dashboard for large-scale data visualization, featuring real-time updates and customizable widgets.",
-                "tech_stack": ["React", "D3.js", "Material UI"],
-                "demo_link": "#",
+                "tech_stack": [
+                    "React",
+                    "D3.js",
+                    "Material UI"
+                ],
+                "demo_link": "projects/dashboard/index.html",
                 "github_link": "#"
             },
             {
                 "title": "E-Commerce Platform",
                 "description": "A headless e-commerce frontend built for performance and SEO, integrating with Shopify API.",
-                "tech_stack": ["Next.js", "Tailwind CSS", "Stripe API"],
-                "demo_link": "#",
+                "tech_stack": [
+                    "Next.js",
+                    "Tailwind CSS",
+                    "Stripe API"
+                ],
+                "demo_link": "projects/ecommerce/index.html",
                 "github_link": "#"
             },
             {
                 "title": "Corporate Banking Portal",
                 "description": "Secure and accessible banking interface designed for high-net-worth individual management.",
-                "tech_stack": ["Vue.js", "SCSS", "Jest"],
-                "demo_link": "#",
+                "tech_stack": [
+                    "Vue.js",
+                    "SCSS",
+                    "Jest"
+                ],
+                "demo_link": "projects/banking/index.html",
                 "github_link": "#"
             }
         ]

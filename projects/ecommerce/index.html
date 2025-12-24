@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuxeShop | E-Commerce Demo</title>
+    <style>
+        :root {
+            --primary: #222;
+            --accent: #d4a373;
+            --bg: #f9f9f9;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--primary);
+        }
+
+        /* Nav */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .back-btn {
+            text-decoration: none;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .cart-btn {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--accent);
+            color: white;
+            font-size: 0.7rem;
+            padding: 2px 6px;
+            border-radius: 50%;
+        }
+
+        /* Hero */
+        .hero {
+            background: #eaeaea;
+            padding: 60px 40px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            margin-bottom: 10px;
+            font-size: 2.5rem;
+        }
+
+        .hero p {
+            color: #666;
+        }
+
+        /* Grid */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 60px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .product:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .img-placeholder {
+            width: 100%;
+            height: 200px;
+            background-color: #eee;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #aaa;
+        }
+
+        .p-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .p-price {
+            color: var(--accent);
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .add-btn {
+            width: 100%;
+            padding: 10px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .add-btn:hover {
+            background: #444;
+        }
+
+        /* Toast */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #333;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 4px;
+            opacity: 0;
+            transition: 0.3s;
+            transform: translateY(10px);
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">LUXESHOP</div>
+        <div class="nav-links">
+            <a href="../../index.php" class="back-btn">← Portfolio</a>
+            <div class="cart-btn" onclick="alert('Cart functionality demo')">
+                🛒 <span class="cart-badge" id="count">0</span>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>Summer Essentials</h1>
+        <p>Curated minimalist design for the modern era.</p>
+    </header>
+
+    <div class="container">
+        <div class="grid" id="grid">
+            <!-- JS Injection -->
+        </div>
+    </div>
+
+    <div class="toast" id="toast">Added to cart!</div>
+
+    <script>
+        const products = [
+            { id: 1, name: "Minimalist Watch", price: 129.00 },
+            { id: 2, name: "Leather Tote", price: 249.50 },
+            { id: 3, name: "Wireless Buds", price: 89.99 },
+            { id: 4, name: "Desk Lamp", price: 45.00 },
+            { id: 5, name: "Sneaker Pro", price: 110.00 },
+            { id: 6, name: "Travel Backpack", price: 75.00 },
+        ];
+
+        let cartCount = 0;
+
+        function render() {
+            const grid = document.getElementById('grid');
+            grid.innerHTML = products.map(p => `
+                <div class="product">
+                    <div class="img-placeholder">Product Image</div>
+                    <div class="p-title">${p.name}</div>
+                    <span class="p-price">$${p.price.toFixed(2)}</span>
+                    <button class="add-btn" onclick="addToCart(${p.id})">Add to Cart</button>
+                </div>
+            `).join('');
+        }
+
+        function addToCart(id) {
+            cartCount++;
+            document.getElementById('count').innerText = cartCount;
+
+            // Show toast
+            const toast = document.getElementById('toast');
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 2000);
+        }
+
+        render();
+    </script>
+</body>
+
+</html>

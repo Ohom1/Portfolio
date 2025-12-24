@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CorpBank | Secure Portal</title>
+    <style>
+        :root {
+            --blue: #0056b3;
+            --light: #f0f2f5;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--light);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        /* Shared */
+        .container {
+            width: 100%;
+            max-width: 400px;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px;
+            background: var(--blue);
+            color: white;
+            border: none;
+            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background: #004494;
+        }
+
+        /* Login */
+        .login-view h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        /* Dashboard */
+        .dash-view {
+            max-width: 600px;
+            width: 90%;
+        }
+
+        .dash-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+
+        .dash-header h2 {
+            margin: 0;
+            color: var(--blue);
+        }
+
+        .balance-card {
+            background: linear-gradient(135deg, #0056b3, #0088ff);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+
+        .balance-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .balance-amount {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .tx-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .tx-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .tx-info h4 {
+            margin: 0 0 5px;
+            font-size: 1rem;
+        }
+
+        .tx-date {
+            font-size: 0.8rem;
+            color: #999;
+        }
+
+        .tx-amount {
+            font-weight: bold;
+        }
+
+        .tx-amount.neg {
+            color: #333;
+        }
+
+        .tx-amount.pos {
+            color: #28a745;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #999;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Login View -->
+    <div id="login" class="container login-view">
+        <h2>Secure Login</h2>
+        <div class="input-group">
+            <label>Corporate ID</label>
+            <input type="text" value="CORP-8821" readonly style="background: #f9f9f9;">
+        </div>
+        <div class="input-group">
+            <label>Password</label>
+            <input type="password" placeholder="••••••••">
+        </div>
+        <button class="btn" onclick="login()">Access Portal</button>
+        <a href="../../index.php" class="back-link">Cancel and Return</a>
+    </div>
+
+    <!-- Dashboard View -->
+    <div id="dashboard" class="container dash-view hidden">
+        <div class="dash-header">
+            <h2>CorpBank</h2>
+            <div style="font-size: 0.9rem;">Welcome, <b>Om Dubey</b></div>
+        </div>
+
+        <div class="balance-card">
+            <div class="balance-label">Available Corporate Balance</div>
+            <div class="balance-amount">$1,240,500.00</div>
+        </div>
+
+        <h3>Recent Transactions</h3>
+        <ul class="tx-list">
+            <li class="tx-item">
+                <div class="tx-info">
+                    <h4>Vendor Payment - AWS</h4><span class="tx-date">Today, 10:23 AM</span>
+                </div>
+                <div class="tx-amount neg">-$2,450.00</div>
+            </li>
+            <li class="tx-item">
+                <div class="tx-info">
+                    <h4>Client Deposit - TechSoft</h4><span class="tx-date">Yesterday, 4:15 PM</span>
+                </div>
+                <div class="tx-amount pos">+$15,000.00</div>
+            </li>
+            <li class="tx-item">
+                <div class="tx-info">
+                    <h4>Payroll Run</h4><span class="tx-date">Dec 22, 9:00 AM</span>
+                </div>
+                <div class="tx-amount neg">-$45,200.00</div>
+            </li>
+        </ul>
+
+        <button class="btn" style="background: #666;" onclick="location.reload()">Log Out</button>
+    </div>
+
+    <script>
+        function login() {
+            // Simulate API call
+            const btn = document.querySelector('.btn');
+            btn.innerText = 'Verifying...';
+            btn.style.opacity = '0.7';
+
+            setTimeout(() => {
+                document.getElementById('login').classList.add('hidden');
+                document.getElementById('dashboard').classList.remove('hidden');
+                document.body.style.background = '#eef2f7'; // Change bg for dash
+            }, 1000);
+        }
+    </script>
+</body>
+
+</html>
