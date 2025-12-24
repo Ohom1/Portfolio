@@ -34,6 +34,7 @@ The design philosophy emphasizes **modern UI**, **clean layouts**, and **subtle 
 - **⚡️ Blazing Fast**: Zero client-side framework bloat.
 - **📱 Fully Responsive**: Optimized for Mobile, Tablet, and Desktop.
 - **📄 Data-Driven**: All text content is separated in `data/content.json` for easy editing.
+- **🎮 Interactive Demos**: Includes 3 fully functional mini-apps (Dashboard, E-Commerce, Banking) to showcase skills.
 - **📩 Functional Contact Form**: Submissions are securely stored in a local SQLite database.
 - **✨ Smooth Interactions**: Sticky navigation, scroll-reveal animations, and micro-interactions.
 
@@ -50,6 +51,7 @@ Portfolio/
 │   ├── content.json    # Editable site content
 │   └── database.sqlite # Contact form messages
 ├── includes/       # PHP Partials (Header, Footer)
+├── projects/       # Interactive Mini-App Demos (Dashboard, Shop, etc.)
 ├── index.php       # Main Entry Point
 └── README.md       # Docs
 ```
