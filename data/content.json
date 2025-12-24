@@ -19,7 +19,7 @@
     },
     "about": {
         "title": "About Me",
-        "content": "I am a dedicated Frontend Developer with hands-on experience in building modern, user-centric web applications. With a background in Information Technology and a passion for clean code, I specialize in transforming designs into functional, responsive websites using the latest web technologies."
+        "content": "I am a **Frontend Developer** who bridges the gap between design and technology. My focus is on building **scalable**, **high-performance** web interfaces that not only look stunning but deliver seamless user experiences.\n\nWith a strong command of **Modern JavaScript**, **React**, and **Responsive Design**, I transform complex requirements into polished digital products. I believe in clean code, accessibility, and continuous innovation."
     },
     "skills": {
         "title": "Technical Expertise",
@@ -165,7 +165,7 @@
         "title": "Professional Experience",
         "items": [
             {
-                "role": "Frontend Developer / Intern",
+                "role": "Frontend Developer",
                 "company": "NextGen Techno Ventures Pvt. Ltd.",
                 "duration": "June 2024 – November 2025",
                 "location": "Mumbai, India",

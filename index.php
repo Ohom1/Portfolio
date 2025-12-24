@@ -42,7 +42,12 @@ $content = get_content();
             <h2 class="section-title"><?php echo htmlspecialchars($content['about']['title']); ?></h2>
         </div>
         <div class="about-content fade-in-up">
-            <p><?php echo htmlspecialchars($content['about']['content']); ?></p>
+                <?php 
+                    $aboutContent = htmlspecialchars($content['about']['content']);
+                    // Simple Markdown parser for **bold**
+                    $aboutContent = preg_replace('/\*\*(.*?)\*\*/', '<strong>$1</strong>', $aboutContent);
+                    echo nl2br($aboutContent);
+                ?></p>
         </div>
     </div>
 </section>
